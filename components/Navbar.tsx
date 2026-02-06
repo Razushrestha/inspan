@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
@@ -29,13 +30,17 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-secondary/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Brand Logo */}
-        <Link href="/" className="group flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:bg-white group-hover:text-primary transition-colors duration-300">
-                I
+        <Link href="/" className="group flex items-center">
+            <div className="bg-white rounded-lg p-1.5 shadow-md">
+              <Image 
+                src="/inspan.png" 
+                alt="INSPAN Logo" 
+                width={140} 
+                height={50} 
+                className="h-10 w-auto"
+                priority
+              />
             </div>
-            <span className={`text-2xl font-bold font-heading tracking-wide transition-colors ${scrolled ? 'text-white' : 'text-white'}`}>
-                INSPAN
-            </span>
         </Link>
         
         {/* Desktop Navigation */}

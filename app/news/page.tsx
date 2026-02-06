@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function News() {
     return (
       <div className="bg-white min-h-screen font-body">
@@ -19,42 +21,33 @@ export default function News() {
                     title: "Launch of INSPAN CoE Nepal",
                     category: "Announcement",
                     date: "Oct 20, 2025",
-                    image: (
-                      <svg className="w-20 h-20 text-gray-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-3a1 1 0 011-1h2a1 1 0 011 1v3m-5-4v4m3-4v4" />
-                      </svg>
-                    ),
+                    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
                     excerpt: "A landmark day for cross-border innovation as we inaugurate the Center of Excellence in Kathmandu."
                 },
                 {
                     title: "MoUs signed with leading IITs",
                     category: "Partnership",
                     date: "Nov 15, 2025",
-                    image: (
-                      <svg className="w-20 h-20 text-gray-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                      </svg>
-                    ), // Using Users for partnership/handshake implies people
+                    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop",
                     excerpt: "Strengthening academic ties to foster joint research and student exchange programs between nations."
                 },
                 {
                     title: "Innovation Workshop: Climate Tech",
                     category: "Event",
                     date: "Dec 05, 2025",
-                    image: (
-                      <svg className="w-20 h-20 text-gray-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                      </svg>
-                    ), // Using adjustments/levels for workshop or maybe Leaf if specifically climate
+                    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop",
                     excerpt: "Bringing together experts, policymakers, and startups to discuss sustainable solutions for the Himalayan region."
                 }
             ].map((news, idx) => (
                 <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col">
-                    <div className="h-56 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative overflow-hidden">
-                         <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
-                         <div className="transition-all duration-300 transform group-hover:scale-110">
-                            {news.image}
-                         </div>
+                    <div className="h-56 bg-gray-100 relative overflow-hidden">
+                         <Image 
+                           src={news.image} 
+                           alt={news.title}
+                           fill
+                           className="object-cover group-hover:scale-110 transition-transform duration-500"
+                         />
+                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
                          <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-secondary uppercase tracking-wider shadow-sm">
                              {news.category}
                          </span>
